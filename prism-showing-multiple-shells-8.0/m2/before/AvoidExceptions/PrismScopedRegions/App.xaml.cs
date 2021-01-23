@@ -1,30 +1,35 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
+
+using ModuleA;
 
 using Prism.Ioc;
+using Prism.Modularity;
 using Prism.Unity;
 
 namespace PrismScopedRegions
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : PrismApplication
     {
-        //protected override void OnStartup(StartupEventArgs e)
-        //{
-        //    base.OnStartup(e);
-        //    Bootstrapper bs = new Bootstrapper();
-        //    bs.Run();
-        //}
+
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+            moduleCatalog.AddModule(typeof(ModuleAModule));
+
+            base.ConfigureModuleCatalog(moduleCatalog);
+        }
         protected override Window CreateShell()
         {
-            throw new NotImplementedException();
+            return Container.Resolve<Shell>();
+        }
+
+        protected override void InitializeShell(Window shell)
+        {
+            base.InitializeShell(shell);
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

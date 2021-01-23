@@ -1,23 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+
+using ModuleA;
+
+using Prism.Ioc;
+using Prism.Modularity;
+using Prism.Unity;
+
+using PrismScopedRegions.Infrastructure;
 
 namespace PrismScopedRegions
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-        protected override void OnStartup(StartupEventArgs e)
+
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
-            base.OnStartup(e);
-            Bootstrapper bs = new Bootstrapper();
-            bs.Run();
+            moduleCatalog.AddModule(typeof(ModuleAModule));
+
+            base.ConfigureModuleCatalog(moduleCatalog);
+        }
+        
+        protected override Window CreateShell()
+        {
+            return Container.Resolve<Shell>();
+        }
+
+        protected override void InitializeShell(Window shell)
+        {
+            base.InitializeShell(shell);
+        }
+
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterSingleton<IShellService, ShellService>();
+
         }
     }
 }
