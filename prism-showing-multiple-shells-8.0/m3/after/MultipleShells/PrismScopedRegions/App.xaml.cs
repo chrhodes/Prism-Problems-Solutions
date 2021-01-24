@@ -33,7 +33,6 @@ namespace PrismScopedRegions
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IShellService, ShellService>();
-
         }
     }
 }
