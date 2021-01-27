@@ -1,5 +1,4 @@
-﻿
-namespace PrismScopedRegions.Infrastructure
+﻿namespace PrismScopedRegions.Infrastructure
 {
     public static class KnownRegionNames
     {

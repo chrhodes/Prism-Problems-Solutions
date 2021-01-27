@@ -9,6 +9,7 @@ using Prism.Unity;
 
 using PrismScopedRegions.Infrastructure;
 using PrismScopedRegions.Infrastructure.Prism;
+using PrismScopedRegions.Views;
 
 namespace PrismScopedRegions
 {

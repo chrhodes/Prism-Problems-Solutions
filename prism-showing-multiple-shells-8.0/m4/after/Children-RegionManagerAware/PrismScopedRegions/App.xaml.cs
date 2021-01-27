@@ -9,6 +9,7 @@ using Prism.Unity;
 
 using PrismScopedRegions.Infrastructure;
 using PrismScopedRegions.Infrastructure.Prism;
+using PrismScopedRegions.Views;
 
 namespace PrismScopedRegions
 {
@@ -39,13 +40,12 @@ namespace PrismScopedRegions
         {
             containerRegistry.RegisterSingleton<IShellService, ShellService>();
         }
-        
-        protected override IRegionBehaviorFactory ConfigureDefaultRegionBehaviors()
+
+        protected override void ConfigureDefaultRegionBehaviors(IRegionBehaviorFactory regionBehaviors)
         {
-            IRegionBehaviorFactory behaviors = base.ConfigureDefaultRegionBehaviors();
-            behaviors.AddIfMissing(RegionManagerAwareBehavior.BehaviorKey, typeof(RegionManagerAwareBehavior));
-            return behaviors;
+            base.ConfigureDefaultRegionBehaviors(regionBehaviors);
+
+            regionBehaviors.AddIfMissing(RegionManagerAwareBehavior.BehaviorKey, typeof(RegionManagerAwareBehavior));
         }
-    
     }
 }

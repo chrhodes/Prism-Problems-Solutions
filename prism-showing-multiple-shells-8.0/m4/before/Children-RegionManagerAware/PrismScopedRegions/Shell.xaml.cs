@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace PrismScopedRegions
+namespace PrismScopedRegions.Views
 {
     public partial class Shell : Window
     {
