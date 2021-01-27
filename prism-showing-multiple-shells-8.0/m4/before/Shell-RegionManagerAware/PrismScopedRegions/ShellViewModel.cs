@@ -4,7 +4,7 @@ using Prism.Regions;
 
 using PrismScopedRegions.Infrastructure;
 
-namespace PrismScopedRegions
+namespace PrismScopedRegions.ViewModels
 {
     public class ShellViewModel : BindableBase
     {

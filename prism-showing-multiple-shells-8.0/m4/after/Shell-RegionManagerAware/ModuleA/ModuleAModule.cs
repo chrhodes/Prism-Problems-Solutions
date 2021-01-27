@@ -1,25 +1,27 @@
-﻿using Microsoft.Practices.Prism.Modularity;
-using Microsoft.Practices.Prism.Regions;
-using Microsoft.Practices.Unity;
-using PrismScopedRegions.Infrastructure;
+﻿using Prism.Ioc;
+using Prism.Modularity;
+using Prism.Regions;
 
 namespace ModuleA
 {
     public class ModuleAModule : IModule
     {
         IRegionManager _regionManager;
-        IUnityContainer _container;
 
-        public ModuleAModule(IRegionManager regionManager, IUnityContainer container)
+        public ModuleAModule(IRegionManager regionManager)
         {
             _regionManager = regionManager;
-            _container = container;
         }
 
-        public void Initialize()
+        public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            _container.RegisterType(typeof(object), typeof(ViewA), "ViewA");
-            _container.RegisterType(typeof(object), typeof(ViewB), "ViewB");
+            containerRegistry.Register(typeof(object), typeof(ViewA), "ViewA");
+            containerRegistry.Register(typeof(object), typeof(ViewB), "ViewB");
+        }
+
+        public void OnInitialized(IContainerProvider containerProvider)
+        {
+
         }
     }
 }

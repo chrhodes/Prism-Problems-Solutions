@@ -7,6 +7,7 @@ using Prism.Modularity;
 using Prism.Unity;
 
 using PrismScopedRegions.Infrastructure;
+using PrismScopedRegions.Views;
 
 namespace PrismScopedRegions
 {

@@ -4,9 +4,12 @@ using ModuleA;
 
 using Prism.Ioc;
 using Prism.Modularity;
+using Prism.Regions;
 using Prism.Unity;
 
 using PrismScopedRegions.Infrastructure;
+using PrismScopedRegions.Infrastructure.Prism;
+using PrismScopedRegions.Views;
 
 namespace PrismScopedRegions
 {
@@ -27,8 +30,8 @@ namespace PrismScopedRegions
 
         protected override void InitializeShell(Window shell)
         {
-            var regionManager = RegionManager.GetRegionManager((Shell));
-            RegionManagerAware.SetRegionManagerAware(Shell, regionManager);
+            var regionManager = RegionManager.GetRegionManager(shell);
+            RegionManagerAware.SetRegionManagerAware(shell, regionManager);
             
             base.InitializeShell(shell);
             

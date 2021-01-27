@@ -1,6 +1,7 @@
 ﻿using Prism.Regions;
 
 using PrismScopedRegions.Infrastructure;
+using PrismScopedRegions.Views;
 
 using Unity;
 

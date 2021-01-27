@@ -3,8 +3,9 @@ using Prism.Mvvm;
 using Prism.Regions;
 
 using PrismScopedRegions.Infrastructure;
+using PrismScopedRegions.Infrastructure.Prism;
 
-namespace PrismScopedRegions
+namespace PrismScopedRegions.ViewModels
 {
     public class ShellViewModel : BindableBase, IRegionManagerAware
     {
