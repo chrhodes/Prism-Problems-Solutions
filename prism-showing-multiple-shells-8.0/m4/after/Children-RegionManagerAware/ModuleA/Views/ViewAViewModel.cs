@@ -12,6 +12,9 @@ namespace ModuleA
     {
         public DelegateCommand NavigateCommand { get; set; }
 
+        // NOTE(crhodes)
+        // This does not get the global RegionManager passed in the Constructor
+
         public ViewAViewModel()
         {
             NavigateCommand = new DelegateCommand(Navigate);
